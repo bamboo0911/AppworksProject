@@ -12,7 +12,7 @@ import { Radar } from "react-chartjs-2";
 // Import utilities
 // import { useCookies } from "react-cookie";
 import { tailwindConfig } from "../../utils/Utils";
-import { skills } from "../../data/mockData";
+// import { skills } from "../../data/mockData";  // mock data
 
 ChartJS.register(
   RadialLinearScale,
@@ -24,10 +24,10 @@ ChartJS.register(
 );
 
 function Skills() {
-  // const [cookies] = useCookies(["studentId"]);
-  // const { studentId } = cookies;
-  const studentId = "B11000000";
-  const { labels, values } = skills;
+  const [cookies] = useCookies(["studentId"]);
+  const { studentId } = cookies;
+  // const studentId = "B11000000"; //mock data
+  // const { labels, values } = skills; //mock data
   const chartData = {
     labels,
     datasets: [
@@ -42,9 +42,9 @@ function Skills() {
   };
 
   return (
-    <div className="flex">
+    <div className="flex flex-col col-span-12 sm:col-span-6 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
       <header className="">
-        <h2 className="font-semibold text-slate-800 dark:text-slate-100">
+        <h2 className="px-5 py-4 font-semibold text-slate-800 dark:text-slate-100">
           Skills
         </h2>
       </header>

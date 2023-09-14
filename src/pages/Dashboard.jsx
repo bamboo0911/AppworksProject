@@ -43,7 +43,7 @@ function Dashboard() {
                 {/* Add view button */}
                 <button
                   className="btn bg-school hover:bg-orange-500 text-white duration-300"
-                  onClick={() => alert("Sorry, 現在還沒有任何功能喔")}
+                  
                 >
                   <svg
                     className="w-4 h-4 fill-current opacity-50 shrink-0"
