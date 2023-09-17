@@ -1,12 +1,11 @@
 import LineChart from "../../charts/LineChart01";
 // import { applicationStats } from "../../data/mockData"; // mock data
- import useApplicationStats from "../../hooks/dashboard/useApplicationStats"; // API
-
+import useApplicationStats from "../../hooks/dashboard/useApplicationStats"; // API
 // Import utilities
 import { tailwindConfig, hexToRGB } from "../../utils/Utils";
 
 function ApplicationTime() {
-   const { labels, values } = useApplicationStats(); // API
+    const { labels, values } = useApplicationStats(); // API
   // const { labels, values } = applicationStats; // mock data
   const chartData = {
     labels,

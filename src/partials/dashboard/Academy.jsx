@@ -14,13 +14,45 @@ function Academy() {
     }
     return color;
   };
+
+  const newLabels = ["理學院", "創新設計學院", "電機資訊學院", "生物資源暨農學院", "社會科學院", "法律學院", "工學院", "管理學院", "醫學院", "文學院"];
+  const newValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  
+    for (let i = 0; i < labels?.length; i++) {
+      if (["心理所一般組", "數學系", "物理學系", "心理學系"].includes(labels[i])) {
+        newValues[0] += values[i] ; 
+      } else if (["創新領域學士學位學程"].includes(labels[i])) {
+        newValues[1] += values[i] ;
+      } else if (["電機工程學系", "資訊工程學系", "生醫電資所", "資訊工程研究所"].includes(labels[i])) {
+        newValues[2] += values[i];
+      } else if (["生物機電工程學系"].includes(labels[i])) {
+        newValues[3] += values[i];
+      } else if (["經濟學系", "經濟系"].includes(labels[i])) {
+        newValues[4] += values[i];
+      } else if (["科際整合法律學研究所"].includes(labels[i])) {
+        newValues[5] += values[i];
+      } else if (["材料科學與工程學系", "工程科學及海洋工程學系", "醫學工程學系"].includes(labels[i])) {
+        newValues[6] += values[i];
+      } else if (["工商管理學系 科技管理組", "工商管理學系", "會計學系", "國際企業學系", "資訊管理學系"].includes(labels[i])) {
+        newValues[7] += values[i];
+      } else if (["物理治療學系"].includes(labels[i])) {
+        newValues[8] += values[i];
+      } else if(["戲劇學系", "外國語文學系 / 圖書資訊學系", "歷史學系", "外國語文學系/社會學系"].includes(labels[i])) {
+        newValues[9] += values[i];
+      }
+    } 
+
+  console.log(newValues);
+  console.log(newLabels);
+
   const chartData = {
-    labels,
+    labels: newLabels,
     datasets: [
       {
         label: "Distribution of colleges",
-        data: values,
-        backgroundColor: values?.map(() => getRandomColor()),
+        data: newValues,
+        backgroundColor: newValues?.map(() => getRandomColor()),
         borderWidth: 0
       }
     ]

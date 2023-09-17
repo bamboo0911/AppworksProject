@@ -2,13 +2,13 @@ import { useState } from "react";
 import usePostSkills from "../../hooks/dashboard/usePostSkills";
 
 function SkillsForm() {
-  const [studentId, setStudentId] = useState();
+  const [studentId, setStudentId] = useState("");
   const [skills, setSkills] = useState({
-    UIUX: 0,
-    backend: 0,
+    "UIUX": 0,
+    "backend": 0,
     "business analysis": 0,
     "design thinking": 0,
-    frontend: 0
+    "frontend": 0
   });
   const postForm = usePostSkills();
 

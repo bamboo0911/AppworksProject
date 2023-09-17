@@ -1,3 +1,4 @@
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -9,10 +10,12 @@ import {
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
 
-// Import utilities
-// import { useCookies } from "react-cookie";
+// Import utilitiesr
+import { useCookies } from "react-cookie";
 import { tailwindConfig } from "../../utils/Utils";
 // import { skills } from "../../data/mockData";  // mock data
+
+import useSkills from "../../hooks/dashboard/useSkills"; // API
 
 ChartJS.register(
   RadialLinearScale,
@@ -24,19 +27,19 @@ ChartJS.register(
 );
 
 function Skills() {
-  const [cookies] = useCookies(["studentId"]);
-  const { studentId } = cookies;
+   const [cookies] = useCookies(["studentId"]);
+   const { studentId } = cookies;
   // const studentId = "B11000000"; //mock data
-  // const { labels, values } = skills; //mock data
+  const { labels, values } = useSkills(studentId); // 使用 useSkills 钩子获取数据 By chatGPT
   const chartData = {
     labels,
     datasets: [
       {
         label: "能力值",
         data: values,
-        backgroundColor: tailwindConfig().theme.colors.orange[500],
+        backgroundColor: tailwindConfig().theme.colors.orange[200],
         borderColor: tailwindConfig().theme.colors.orange[500],
-        borderWidth: 2
+        borderWidth: 1
       }
     ]
   };
